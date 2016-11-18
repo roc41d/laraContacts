@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('site.home');
 });
+
+/*
+    |--------------------------------------------------------------------------
+    | Session Controller Routes
+    |--------------------------------------------------------------------------
+    |
+    | Routes to handle session things
+    |
+    */
+Route::get('logout', 'SessionController@logout');
+Route::get('login', 'SessionController@login');
+Route::post('login', 'SessionController@handleLogin');
+Route::get('register', 'SessionController@register');
+Route::post('register', 'SessionController@handleRegister');
+
