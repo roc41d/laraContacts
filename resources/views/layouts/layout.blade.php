@@ -47,12 +47,21 @@
             </button>
             <a class="navbar-brand text-muted" href="{{url('/')}}">Phone Book</a>
         </div>
+        @if(Auth::check() == NULL)
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{URL::to('register')}}">create account</a></li>
                 <li><a href="{{URL::to('login')}}">log in</a></li>
             </ul>
         </div>
+        @else
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a >{{Auth::user()->username}}</a></li>
+                <li><a href="{{URL::to('login')}}">logout</a></li>
+            </ul>
+        </div>
+        @endif
     </div>
 </div>
 

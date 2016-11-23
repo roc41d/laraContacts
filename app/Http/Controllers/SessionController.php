@@ -17,8 +17,8 @@ class SessionController extends Controller {
 
 	public function handleLogin(Request $request) {
 		if (Auth::attempt(['username' => $request->input('username'), 'password' => $request->input('password')])) {
-			
-			return redirect()->to('/')->with('alertMessage', "Login successfully !");
+
+			return redirect()->to('user/contacts');
 		}
 
 		return redirect()->back()->with('alertError', "invalid username / password !");

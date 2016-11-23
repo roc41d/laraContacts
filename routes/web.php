@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
+
     return view('site.home');
+});
+
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+
+	Route::get('contacts', 'ActivityController@allContacts');
+	
 });
 
 /*
